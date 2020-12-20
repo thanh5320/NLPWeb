@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>BK - TOOLS</title>
+      <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   </head>
+   <body style="background-image: url('https://taoanhonline.com/wp-content/uploads/2019/07/hinh-nen-hoa-dep-17-2.jpg');">
+      <div class="box">
+         <h1>Natural Language Processing Tools</h1>
+      </div>
+      <script src="./main.js"></script>
+      <div class="wrapper">
+         <div class="content-box">
+            <div class="content">
+               <a href="text_recognition/" style="color:white; text-decoration: none;">
+                  <h2>Writing Recognition</h2>
+                  <p>
+                     Translates printed documents in image format to electronic documents.</br></br>
+                     The handwriting recognition program can convert thousands of library books into electronic documents in a short time.</br></br>
+                     Using python library: pytesseract.
+                  </p>
+                  <button style="margin-top: 102px; margin-bottom: 20px;">Get link</button>
+               </a>
+            </div>
+         </div>
+         <div class="content-box">
+            <div class="content">
+               <a href="translate/" style="color:white; text-decoration: none;">
+                  <h2>Translation</h2>
+                  <p>
+                     Auto translation performs translation of one language (source) into another language (destination).</br></br>
+                     The difficulty of designing an automatic translation program is the ambiguity of the input (multiple meanings).</br></br>
+                     Using google translate service.
+                  </p>
+                  <button style=" margin-top: 85px;margin-bottom: 20px;">Get link</button>
+               </a>
+            </div>
+         </div>
+         <div class="content-box">
+            <div class="content">
+               <a href="summary/" style="color:white; text-decoration: none;">
+                  <h2>Text Summary</h2>
+                  <p>
+                     From a long text summarized to a short but still full of content. </br></br>
+                     Have two main methods: Extractive Summarization and Abstractive Summarization. </br></br>
+                     Using python library: nltk (Method: Extractive Summarization).
+                  </p>
+                  <button style="margin-top: 100px;">Get link</button>
+               </a>
+            </div>
+         </div>
+         <div class= "content-box">
+            <div class="content">
+               <a href="word_tokenize/" style="color:white; text-decoration: none;">
+                  <h2>POS-Tagging</h2>
+                  <p>
+                     Performs the function of separating words and giving words types of words. </br></br>
+                     Using python library: pyvi (modules: ViPosTagger, ViTokenizer)
+                  </p>
+                  <button style="margin-top: 156px;">Get link</button>
+               </a>
+            </div>
+         </div>
+         <div class= "content-box">
+            <div class="content">
+               <a href="sentiment_analysis/" style="color:white; text-decoration: none;">
+                  <h2>Sentitive Analysis</h2>
+                  <p>
+                     Sentiment analysis is a common NLP task, which involves classifying texts or parts of texts into a pre-defined sentiment </br></br>
+                     Using python library: nltk (nltk.sentiment.vader: SentimentIntensityAnalyzer).
+                  </p>
+                  <button style="margin-top: 135px;">Get link</button>
+               </a>
+            </div>
+         </div>
+      </div>
+      <div class="footer">
+         <div>
+            <span style="color: black; font-size: 25px; margin-left: 10px;">About us </span>
+            <i class="fa fa-instagram" id="icon" ></i>
+            <i class="fa fa-facebook-square" id="icon" onclick="window.location='https://www.facebook.com/tuantoquq2109';"></i>
+            <i class="fa fa-mobile" id="icon"></i>
+         </div>
+         <div>
+            <div style="color:black; margin-left: 40px;">
+               <p>1. Nguyen Van Thanh - IT1 04 - K63</p>
+               <p>2. Nguyen Hoang Anh Tuan - IT1 03 - K63</p>
+            </div>
+            <div style="color: black;margin-left: 10px;margin-top: 0px;">
+               <p>@Copyright by thanhnt .ft toquq</p>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

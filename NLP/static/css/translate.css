@@ -1,0 +1,14 @@
+.choose-btn{
+    width: 150px;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-right: 10px;
+    color: rgb(33, 113, 206);
+    border: 0;
+}
+
+textarea { 
+    border-style: none; 
+    border-color: Transparent; 
+    overflow: auto;        
+  }

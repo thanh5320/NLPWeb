@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
+/*---General---*/
+
+/*---Header---*/
+.box{
+    margin: 10px auto;
+    position: relative;
+    width: 600px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*background: linear-gradient(235deg,#a7829c,#060c21,#00bcd4);*/
+    text-align: center;
+    color: rgb(179, 54, 37);
+    border-radius: 5px;
+    font-size: 18px;
+}
+.box:hover{
+    cursor: pointer;
+}
+
+
+/*--- Slide transition ---*/
+.wrap-slide{
+    height: 200px;
+    width: 50%;
+    margin: 0px auto;
+}
+.slide{
+    height: 200px;
+    text-align: center;
+}
+.slide:hover{
+    cursor: pointer;
+}
+img{
+    margin-top: 30px;
+    align-items: center;
+    width: 60%;
+    
+}
+/*---content---*/
+.wrapper{
+    margin-left: 20px;
+    margin-top: 200px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+}
+.content-box{
+    position: relative;
+    width: 260px;
+    height: 460px;
+    display: flex;
+    justify-content: center;
+    
+    background:rgba (255, 99, 71, 0,5);
+}
+.content-box::before{
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #fff;
+    z-index: -1;
+}
+.content-box::after{
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #fff;
+    z-index: -2;
+    filter:blur(20px)
+}
+.content-box::before,
+.content-box::after{
+    background: linear-gradient(235deg,#a7829c,#060c21,#00bcd4);
+}
+.content-box:hover{
+    background: #023e37;
+}
+.content{
+    padding: 20px;
+    box-sizing: border-box;
+    color: #fff;
+}
+#icon{
+    color:black;
+    font-size: 30px;
+    padding-right: 30px; 
+    float: right;
+}
+#icon:hover{
+    cursor: pointer;
+
+}
+.footer{
+    margin-top: 50px;
+   
+    height: 150px;
+}
+button{
+    float: left;
+    padding: 6px 12px;
+    background: rgb(0, 0, 0);
+    color: #fff;
+    border-radius: 5px;
+}
+button:hover{
+    cursor: pointer;
+    background: rgb(245, 243, 243);
+    color: #060c21;
+    
+}

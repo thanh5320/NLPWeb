@@ -1,0 +1,236 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>TEXT RECOGNITION</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <style>
+         .file-upload-btn {
+         font-size: 40px;
+         height: 200px;
+         width: 70%;
+         margin: 0;
+         color: #fff;
+         background: #68c091;
+         border: none;
+         padding: 10px;
+         border-radius: 30px solid #1FB264;
+         border-bottom: 15px solid #15824B;
+         transition: all .2s ease;
+         outline: none;
+         text-transform: uppercase;
+         font-weight: 700;
+         padding-top: 30px;
+         }
+         .submit-btn{
+         width: 150px;
+         font-size: 20px;
+         border-radius: 5px;
+         margin-right: 10px;
+         color: rgb(102, 61, 8);
+         background-color: rgb(220, 220, 220);
+         border: 0;
+         }
+         .texta{
+         width: 70%;
+         height: 400px;
+         background: rgb(230, 230, 230);
+         border-radius: 30px;
+         }
+         .head{
+         /*background-color: #7FFFD4; */
+         height: 50px;
+         background-color: rgb(76, 166, 218);
+         }
+         .than{
+         background-color: white;
+         height:-webkit-calc(100vh - 50px);
+         overflow-y: auto;
+         padding-top: 10px;
+         }
+         ::-webkit-scrollbar{
+         width: 0px;
+         background: white;
+         }
+         ::-webkit-scrollbar-thumb{
+         background-color: gray;
+         border-radius: 0px;
+         }
+         .menu {
+         display: flex;
+         text-decoration: none;
+         list-style: none;
+         color: white;
+         }
+         .menu a{
+         color: white;
+         font-size: 20px;
+         padding: 10px;
+         display: block;
+         }
+         .menu a:hover{
+         background-color: rgb(57, 124, 179);
+         text-decoration: none;
+         }
+         .tieu_de{
+         margin: 0px;
+         padding: 0px;
+         color: red;
+         padding-bottom: 70px;
+         }
+         .list-img{
+         display: flex;
+         text-decoration: none;
+         list-style: none;
+         color: white;
+         margin-left: 28%;
+         padding : 50px;
+         padding-bottom: 20px;
+         }
+         .list-img li{
+         padding-left: 50px;
+         padding-right: 50px;
+         }
+         .list-img li:hover{
+         background-color: rgb(220, 220, 220);
+         text-decoration: none;
+         border-radius: 30px;
+         }
+         .chan{
+         height: 70px;
+         background-color: rgb(76, 166, 218);
+         margin:-30px;
+         }
+         .footer{
+         margin-top: 50px;
+         background-color: rgb(100, 100, 100);
+         height: 150px;
+         margin: 0px;
+         }
+         #icon{
+         color: rgb(230, 230, 230);
+         font-size: 30px;
+         padding-right: 30px; 
+         float: right;
+         }
+         #icon:hover{
+         cursor: pointer;
+         }
+         .menu-btn{
+         width: 35%;
+         margin: 0;
+         color: #fff;
+         background: #b36e46;
+         border: none;
+         padding: 10px;
+         border-radius: 4px;
+         border-bottom: 4px solid #c52626;
+         transition: all .2s ease;
+         outline: none;
+         text-transform: uppercase;
+         font-weight: 700;
+         padding-top: 30px;
+         font-size: 30px;
+         }
+         .textarea{
+         width: 100%;
+         height: 250px;
+         }
+         .title{
+         margin-top: 20px;
+         font-size: 30px;
+         color: red;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container-fluid">
+         <div class="row head" >
+            <div class="col-sm-2">
+               <h1 style="color: white;">BK-TOOLS</h1>
+            </div>
+            <div class="col-sm-10">
+               <div class="">
+                  <ul class="menu">
+                     <li><a href="/">HOME</a></li>
+                     <li><a href="/text_recognition/">WRITING-RECOGNITION</a></li>
+                     <li><a href="/translate/">TRANSLATION</a></li>
+                     <li><a href="/summary/">TEXT-SUMMARY</a></li>
+                     <li><a href="/word_tokenize/">POS-TAGGING</a></li>
+                     <li><a href="/sentiment_analysis/">SENTIMENT-ANALYSIS</a></li>
+                     <li><a href="/help/">HELP</a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div  >
+      <div style="height: 480px;">
+         <b>
+            <div>
+               <center class="title">DOCUMENT CONTENT SUMMARY</center>
+            </div>
+         </b>
+         <div style="border-radius:  20px; background:rgb(240, 240, 240);">
+            <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div>
+               <center>
+                  <p class="the-p">CHOOSE DOCUMENT</p>
+               </center>
+               <center>
+                  <p class="the-p">.doc, .docx, .odf, .pdf, .ppt, .pptx, .ps, .rtf, .txt, .xls, .xlsx</p>
+               </center>
+               <center><input class="tai-file" type="file" name="file" id="file" onblur="blurFunction()"/></center>
+               <input type="text" id="text" name="text" style="display: none;"/>
+            </div>
+            <center>
+            <input style="margin-top: 20px;" class="submit-btn" type="Submit" name="Submit" value="Submit"/>
+            <center>
+            <form>
+         </div>
+         <div>
+            {% if submitbutton == "Submit"  %}
+            <h4 style="color: rgb(11, 138, 2);">SUMMARY TEXT:</h4>
+            <textarea name="textarea" id="textarea" class="textarea">{{ text }}</textarea>
+            {% endif %}
+         </div>
+      </div>
+      <div class="footer">
+         <div style="margin-top: 30px;">
+            <span style="color: rgb(230, 230, 230); font-size: 25px; margin-left: 10px;">About us </span>
+            <i class="fa fa-instagram" id="icon" ></i>
+            <i class="fa fa-facebook-square" id="icon" onclick="window.location='https://www.facebook.com/tuantoquq2109';"></i>
+            <i class="fa fa-mobile" id="icon"></i>
+         </div>
+         <div>
+            <div style="color:rgb(230, 230, 230) ; margin-left: 40px;">
+               <p>1. Nguyen Van Thanh - IT1 04 - K63</p>
+               <p>2. Nguyen Hoang Anh Tuan - IT1 03 - K63</p>
+            </div>
+            <div style="color: #fff;margin-left: 10px;margin-top: 0px;">
+               <p>@Copyright by thanhnt .ft toquq</p>
+            </div>
+         </div>
+      </div>
+   </body>
+   <script>
+      function blurFunction(){
+      var fileToLoad = document.getElementById("file").files[0];
+      
+      var fileReader = new FileReader();
+      fileReader.onload = function(fileLoadedEvent){
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        //document.getElementById("inputTextToSave").value = textFromFileLoaded;
+        document.getElementById("text").value = textFromFileLoaded;
+      };
+      
+      fileReader.readAsText(fileToLoad, "UTF-8");
+      }
+   </script>
+</html>

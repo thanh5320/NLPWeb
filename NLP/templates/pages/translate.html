@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>TRANSLATES</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <style>
+         .head{
+         /*background-color: #7FFFD4; */
+         height: 50px;
+         background-color: rgb(76, 166, 218);
+         }
+         .than{
+         background-color: fuchsia;
+         height:-webkit-calc(100vh - 50px);
+         overflow-y: auto;
+         padding-top: 100px;
+         }
+         ::-webkit-scrollbar{
+         width: 0px;
+         background: white;
+         }
+         ::-webkit-scrollbar-thumb{
+         background-color: gray;
+         border-radius: 0px;
+         }
+         .menu {
+         display: flex;
+         text-decoration: none;
+         list-style: none;
+         color: white;
+         }
+         .menu a{
+         color: white;
+         font-size: 20px;
+         padding: 10px;
+         display: block;
+         }
+         .menu a:hover{
+         background-color: rgb(57, 124, 179);
+         text-decoration: none;
+         }
+         .choose-btn{
+         width: 150px;
+         font-size: 20px;
+         border-radius: 5px;
+         margin-right: 10px;
+         color: rgb(33, 113, 206);
+         border: 0;
+         margin-bottom: 20px;
+         }
+         textarea { 
+         border-style: none; 
+         border-color: Transparent; 
+         overflow: auto;
+         margin-top: 20px;     
+         width: 49.84%;  
+         }
+         .btn-lang-left{
+         margin-top: 20PX;
+         background-color:rgb(240, 240, 240);
+         color:rgb(100, 100, 100);
+         font-size: 18px;
+         border: 0;
+         margin-right: 5px;
+         }
+         .list-lang{
+         background-color:rgb(240, 240, 240);
+         color:rgb(100, 100, 100);
+         font-size: 18px;
+         }
+         .btn-lang-right{
+         margin-top: 20PX;
+         background-color:rgb(240, 240, 240);
+         color:rgb(100, 100, 100);
+         font-size: 18px;
+         border: 0;
+         margin-right: 5px;
+         float: right;
+         }
+         .submit-btn{
+         width: 150px;
+         font-size: 20px;
+         border-radius: 5px;
+         margin-right: 10px;
+         color: rgb(102, 61, 8);
+         background-color: rgb(220, 220, 220);
+         border: 0;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container-fluid">
+         <div class="row head" >
+            <div class="col-sm-2">
+               <h1 style="color: white;">BK-TOOLS</h1>
+            </div>
+            <div class="col-sm-10">
+               <div class="">
+                  <ul class="menu">
+                     <li><a href="/">HOME</a></li>
+                     <li><a href="/text_recognition/">WRITING-RECOGNITION</a></li>
+                     <li><a href="/translate/">TRANSLATION</a></li>
+                     <li><a href="/summary/">TEXT-SUMMARY</a></li>
+                     <li><a href="/word_tokenize/">POS-TAGGING</a></li>
+                     <li><a href="/sentiment_analysis/">SENTIMENT-ANALYSIS</a></li>
+                     <li><a href="/help/">HELP</a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div style="margin: 50px; ">
+         <button class="choose-btn"><i class="fa fa-language" aria-hidden="true"></i>Text</button>
+         <a href="/translate2/"><button class="choose-btn"><i class="fa fa-file-text" aria-hidden="true"></i>Document</button></a>
+         <div id="vanban">
+            <div style="border-radius:  20px; background:rgb(240, 240, 240);">
+               <form action="" method="POST">
+               {% csrf_token %}
+               <!--<button class="btn-lang-left">LANGUAGE DETECTION</button>
+                  <button  class="btn-lang-left">ENGLISH</button>
+                  <button  class="btn-lang-left">VIETNAMESE</button>-->
+               <select style="border: none; margin-top: 10px;" class="list-lang" name="ddselect1">
+                  <option value="en" selected="selected">ENGLISH</option>
+                  <option value="vi">VIETNAMESE</option>
+                  <option value="ja">JAPANESE</option>
+                  <option value="it">ITALIAN</option>
+                  <option value="ru">RUSSIAN</option>
+                  <option value="es">SPANISH</option>
+                  <option value="zh-cn">CHINESE</option>
+                  <!--<option value="" selected="selected">LANGUAGE DETECTION</option>-->
+               </select>
+               <select style="border: none; float: right; margin-top: 10px;" class="list-lang" name="ddselect2">
+                  <option value="vi" selected="selected">VIETNAMESE</option>
+                  <option value="en">ENGLISH</option>
+                  <option value="ja">JAPANESE</option>
+                  <option value="it">ITALIAN</option>
+                  <option value="ru">RUSSIAN</option>
+                  <option value="es">SPANISH</option>
+                  <option value="zh-cn">CHINESE</option>
+               </select>
+               <!--<button  class="btn-lang-right">ENGLISH</button>
+                  <button  class="btn-lang-right">VIETNAMESE</button>
+                  <button  class="btn-lang-right">FRANCE</button>-->
+               <div>
+                  <textarea rows="7" name="Text">{% if submitbutton == "Submit" %} {{ text1 }} {% endif %}  </textarea>
+                  <textarea style="float: right;" rows="7" name="textarea" id="textarea">{% if submitbutton == "Submit" %} {{ text2 }} {% endif %}</textarea>
+                  <input type="text" value="" style="display: none;"/>
+               </div>
+               <center>
+               <input class="submit-btn" type="Submit" name="Submit" value="Submit"/>
+               <center>
+               <form>
+            </div>
+            <div>
+               <center>
+                  <i style="font-size: 100px; color: rgb(57, 124, 179); margin: 40px;" class="fa fa-star-o" aria-hidden="true"></i>
+                  <i style="font-size: 100px; color: rgb(57, 124, 179); margin: 40px;"  class="fa fa-star-o" aria-hidden="true"></i>
+                  <i style="font-size: 100px; color: rgb(57, 124, 179); margin: 40px;"  class="fa fa-star-o" aria-hidden="true"></i>
+               </center>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
